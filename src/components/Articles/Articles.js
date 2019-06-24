@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import * as api from "../../Api";
 //import { Link } from "@reach/router";
 //import axios from "axios";
 //import { handleSortArticles } from "../../Api";
 import ArticleCard from "../ArticleCard/ArticleCard";
 
-class Articles extends React.Component {
+class Articles extends Component {
   state = {
     articles: []
   };

@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import SingleArticle from "./components/SingleArtical/SingleArticle";
 import Articles from "./components/Articles/Articles";
+import Topics from "./components/Topics/Topics";
 
 class App extends Component {
   state = {};
@@ -16,6 +17,7 @@ class App extends Component {
           <About path="/about" />
           <Articles path="articles" />
           <SingleArticle path="/articles/:id" />
+          <Topics path="/topics/:topic" />
         </Router>
       </div>
     );
