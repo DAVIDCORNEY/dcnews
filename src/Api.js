@@ -13,3 +13,9 @@ export const getArticles = limit => {
       return articles;
     });
 };
+
+export const getSingleArticle = id => {
+  return request.get(`/articles/${id}`).then(({ data: { article } }) => {
+    return article;
+  });
+};

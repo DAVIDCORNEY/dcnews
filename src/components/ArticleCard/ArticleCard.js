@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-const ArticleCard = ({ article, id }) => {
+const ArticleCard = ({ article }) => {
   const { title, author, comment_count, votes, created_at } = article;
   return (
     <article>
