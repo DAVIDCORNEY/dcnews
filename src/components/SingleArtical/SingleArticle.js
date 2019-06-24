@@ -21,9 +21,9 @@ class SingleArticle extends Component {
       <div>
         <article>
           <h1>{title}</h1>
-          <h3>{author}</h3>
-          <h3>{created_at}</h3>
-          <h3>Votes {votes}</h3>
+          <h3>Username: {author}</h3>
+          <h3>Date: {created_at}</h3>
+          <h3>Votes: {votes}</h3>
           <p>{body}</p>
         </article>
         {/* <Comments comments={this.props.id} /> */}
