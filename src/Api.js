@@ -19,3 +19,19 @@ export const getSingleArticle = id => {
     return article;
   });
 };
+
+export const getTopics = topic => {
+  return request
+    .get("/articles/", {
+      params: {
+        topic: topic
+      }
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
+};
+
+export const capitalise = word => {
+  return word[0].toUpperCase() + word.slice(1);
+};
