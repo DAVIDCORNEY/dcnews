@@ -29,10 +29,10 @@ class Home extends Component {
                 <Link to={`/articles/${article.article_id}`}>
                   <h2>{title}</h2>
                 </Link>
-                <h3>{author}</h3>
-                <h3>{comment_count}</h3>
-                <h3>Votes {votes}</h3>
-                <h3>{created_at}</h3>
+                <h3>Username: {author}</h3>
+                <h3>Comments: {comment_count}</h3>
+                <h3>Votes: {votes}</h3>
+                <h3>Date: {created_at}</h3>
               </div>
             );
           })}
