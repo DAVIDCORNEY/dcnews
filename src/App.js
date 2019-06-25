@@ -9,11 +9,34 @@ import Topics from "./components/Topics/Topics";
 import Header from "./components/Header/Header";
 
 class App extends Component {
-  state = {};
+  state = {
+    loggedInUser: ""
+  };
+
+  componentDidMount() {
+    const storedUser = localStorage.getItem("loggedIn");
+    if (storedUser) {
+      this.setState({
+        loggedInUser: storedUser
+      });
+    }
+  }
+
+  getLoggedInUser = name => {
+    localStorage.setItem("loggedIn", name);
+    this.setState({
+      loggedInUser: name
+    });
+  };
+
   render() {
+    const isLoggedIn = this.state.loggedInUser;
     return (
-      <div>
-        <Header />
+      <div className="App">
+        <Header
+          getLoggedInUser={this.getLoggedInUser}
+          isLoggedIn={isLoggedIn}
+        />
         <Router>
           <Home path="/" />
           <About path="/about" />
