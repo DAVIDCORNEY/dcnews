@@ -47,6 +47,18 @@ export const getComments = comments => {
     });
 };
 
+export const handleSortArticles = sort_by => {
+  return request
+    .get("/articles/", {
+      params: {
+        sort_by: sort_by
+      }
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
+};
+
 export const capitalise = word => {
   return word[0].toUpperCase() + word.slice(1);
 };

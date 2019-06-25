@@ -1,5 +1,6 @@
 import React from "react";
 import * as api from "../../Api";
+//import AddComment from "../AddComment/AddComment";
 
 class Comments extends React.Component {
   state = {
