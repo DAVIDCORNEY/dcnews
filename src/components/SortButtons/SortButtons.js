@@ -4,7 +4,15 @@ import * as api from "../../Api";
 const SortButtons = ({ setArticles }) => {
   return (
     <div>
-      <button>Date</button>
+      <button
+        onClick={() => {
+          api.handleSortArticles("created_at").then(articles => {
+            setArticles(articles);
+          });
+        }}
+      >
+        Date
+      </button>
       <button
         onClick={() => {
           api.handleSortArticles("comment_count").then(articles => {
