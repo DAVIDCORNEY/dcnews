@@ -39,6 +39,14 @@ export const getUser = username => {
   });
 };
 
+export const getComments = comments => {
+  return request
+    .get(`/articles/${comments}/comments`)
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};
+
 export const capitalise = word => {
   return word[0].toUpperCase() + word.slice(1);
 };

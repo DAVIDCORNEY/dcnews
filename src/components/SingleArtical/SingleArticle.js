@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
+import Comments from "../Comments/Comments";
 
 class SingleArticle extends Component {
   state = {
@@ -26,7 +27,7 @@ class SingleArticle extends Component {
           <h3>Votes: {votes}</h3>
           <p>{body}</p>
         </article>
-        {/* <Comments comments={this.props.id} /> */}
+        <Comments comments={this.props.id} />
       </div>
     );
   }
