@@ -42,7 +42,7 @@ class App extends Component {
           <Home path="/" />
           <About path="/about" />
           <Articles path="articles" />
-          <SingleArticle path="/articles/:id" />
+          <SingleArticle path="/articles/:id" isLoggedIn={isLoggedIn} />
           <Topics path="/topics/:topic" />
           <Error default />
         </Router>

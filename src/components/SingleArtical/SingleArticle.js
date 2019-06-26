@@ -18,6 +18,7 @@ class SingleArticle extends Component {
 
   render() {
     const { title, author, created_at, votes, body } = this.state.article;
+    const { isLoggedIn } = this.props;
     return (
       <div>
         <article>
@@ -27,7 +28,7 @@ class SingleArticle extends Component {
           <h3>Votes: {votes}</h3>
           <p>{body}</p>
         </article>
-        <Comments comments={this.props.id} />
+        <Comments comments={this.props.id} isLoggedIn={isLoggedIn} />
       </div>
     );
   }

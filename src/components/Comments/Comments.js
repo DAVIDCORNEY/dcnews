@@ -1,6 +1,6 @@
 import React from "react";
 import * as api from "../../Api";
-//import AddComment from "../AddComment/AddComment";
+import AddComment from "../AddComment/AddComment";
 
 class Comments extends React.Component {
   state = {
@@ -16,10 +16,11 @@ class Comments extends React.Component {
 
   render() {
     const { comments } = this.state;
+    const { isLoggedIn } = this.props;
     return (
       <div>
         <h2>Comments</h2>
-        {/* <AddComment /> */}
+        <AddComment />
         {comments.map(comment => {
           const { author, votes, created_at, body, comment_id } = comment;
           return (
