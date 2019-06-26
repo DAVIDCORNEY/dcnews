@@ -7,29 +7,31 @@ class Vote extends Component {
   };
 
   render() {
-    const { votes } = this.props;
+    const { votes, isLoggedIn } = this.props;
     const { voteChange } = this.state;
     return (
       <>
         <h3>Votes: {votes + voteChange}</h3>
-        <div>
-          <button
-            onClick={() => {
-              this.handleVote(1);
-            }}
-            disabled={voteChange > 0}
-          >
-            Vote Up
-          </button>
-          <button
-            onClick={() => {
-              this.handleVote(-1);
-            }}
-            disabled={voteChange < 0}
-          >
-            Vote Down
-          </button>
-        </div>
+        {isLoggedIn && (
+          <div>
+            <button
+              onClick={() => {
+                this.handleVote(1);
+              }}
+              disabled={voteChange > 0}
+            >
+              Vote Up
+            </button>
+            <button
+              onClick={() => {
+                this.handleVote(-1);
+              }}
+              disabled={voteChange < 0}
+            >
+              Vote Down
+            </button>
+          </div>
+        )}
       </>
     );
   }
