@@ -55,6 +55,14 @@ export const patchArticleVotes = (article_id, increment) => {
     });
 };
 
+export const patchCommentVotes = (comment_id, increment) => {
+  return request
+    .patch(`/articles/${comment_id}`, { inc_votes: increment })
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+};
+
 export const handleSortArticles = sort_by => {
   return request
     .get("/articles/", {
