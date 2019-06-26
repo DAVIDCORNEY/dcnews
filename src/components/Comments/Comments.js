@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import * as api from "../../Api";
 import AddComment from "../AddComment/AddComment";
+import Votes from "../Vote/Vote";
 
-class Comments extends React.Component {
+class Comments extends Component {
   state = {
     comments: []
   };
@@ -38,9 +39,9 @@ class Comments extends React.Component {
           const { author, votes, created_at, body, comment_id } = comment;
           return (
             <div key={comment_id}>
-              <h3>{author}</h3>
-              <h3>{votes}</h3>
-              <h3>{created_at}</h3>
+              <h3>User: {author}</h3>
+              <h3>Date: {created_at}</h3>
+              <Votes comment_id={comment_id} votes={votes} />
               <p>{body}</p>
             </div>
           );

@@ -33,7 +33,6 @@ class SingleArticle extends Component {
           <h1>{title}</h1>
           <h3>Username: {author}</h3>
           <h3>Date: {created_at}</h3>
-          <h3>Votes: {votes}</h3>
           <Vote article_id={article_id} votes={votes} />
           <p>{body}</p>
         </article>
