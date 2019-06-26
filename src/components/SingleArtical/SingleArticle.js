@@ -28,7 +28,7 @@ class SingleArticle extends Component {
           <h3>Votes: {votes}</h3>
           <p>{body}</p>
         </article>
-        <Comments comments={this.props.id} isLoggedIn={isLoggedIn} />
+        <Comments articleId={this.props.id} isLoggedIn={isLoggedIn} />
       </div>
     );
   }

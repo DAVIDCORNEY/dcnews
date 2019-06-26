@@ -8,19 +8,32 @@ class Comments extends React.Component {
   };
 
   componentDidMount() {
-    const { comments } = this.props;
-    api.getComments(comments).then(comments => {
+    const { articleId } = this.props;
+    api.getComments(articleId).then(comments => {
       this.setState({ comments });
     });
   }
 
+  upDateComments = newComment => {
+    this.setState(prevState => {
+      return { comments: [newComment, ...prevState.comments] };
+    });
+  };
+
   render() {
+    const { articleId } = this.props;
     const { comments } = this.state;
     const { isLoggedIn } = this.props;
     return (
       <div>
         <h2>Comments</h2>
-        {isLoggedIn && <AddComment />}
+        {isLoggedIn && (
+          <AddComment
+            loggedInUser={isLoggedIn}
+            articleId={articleId}
+            upDateComments={this.upDateComments}
+          />
+        )}
         {comments.map(comment => {
           const { author, votes, created_at, body, comment_id } = comment;
           return (
