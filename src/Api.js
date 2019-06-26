@@ -59,6 +59,19 @@ export const handleSortArticles = sort_by => {
     });
 };
 
+// export const handleSortTopics = (topic, sort_by) => {
+//   return request
+//     .get("/articles/", {
+//       params: {
+//         topic: topic,
+//         sort_by: sort_by
+//       }
+//     })
+//     .then(({ data: { articles } }) => {
+//       return articles;
+//     });
+// };
+
 export const capitalise = word => {
   return word[0].toUpperCase() + word.slice(1);
 };

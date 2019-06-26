@@ -1,7 +1,7 @@
 import React from "react";
 import * as api from "../../Api";
 
-const SortButtons = ({ setArticles }) => {
+const SortArticleButtons = ({ setArticles }) => {
   return (
     <div>
       <button
@@ -35,4 +35,4 @@ const SortButtons = ({ setArticles }) => {
   );
 };
 
-export default SortButtons;
+export default SortArticleButtons;

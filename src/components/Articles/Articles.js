@@ -1,20 +1,37 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
 import ArticleCard from "../ArticleCard/ArticleCard";
-import SortButtons from "../SortButtons/SortButtons";
+import SortArticleButtons from "../SortButtons/SortArticleButtons";
+import Error from "../Error/Error";
 
 class Articles extends Component {
   state = {
-    articles: []
+    articles: [],
+    error: null,
+    isLoading: true
   };
 
   componentDidMount() {
-    api.getArticles().then(articles => {
-      this.setState({
-        articles
-      });
-    });
+    this.fetchArticles();
   }
+
+  fetchArticles = () => {
+    api
+      .getArticles()
+      .then(articles => {
+        this.setState({
+          articles,
+          isLoading: false,
+          error: null
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: err,
+          isLoading: false
+        });
+      });
+  };
 
   setArticles = articles => {
     this.setState({
@@ -23,12 +40,14 @@ class Articles extends Component {
   };
 
   render() {
-    const { articles } = this.state;
+    const { articles, error, isLoading } = this.state;
+    if (isLoading) return <div className="spinner" />;
+    if (error) return <Error error={error} />;
     return (
       <div>
         <h1>Articles</h1>
         <h3>Sort Articles</h3>
-        <SortButtons setArticles={this.setArticles} />
+        <SortArticleButtons setArticles={this.setArticles} />
         <section>
           {articles.map(article => {
             const { article_id } = article;
