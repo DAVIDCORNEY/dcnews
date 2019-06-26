@@ -7,7 +7,6 @@ class Vote extends Component {
   };
 
   render() {
-    const { article_id } = this.props;
     const { votes } = this.props;
     const { voteChange } = this.state;
     return (
@@ -15,14 +14,14 @@ class Vote extends Component {
         <h3>Votes: {votes + voteChange}</h3>
         <button
           onClick={() => {
-            this.handleVote(article_id, 1);
+            this.handleVote(1);
           }}
         >
           Vote Up
         </button>
         <button
           onClick={() => {
-            this.handleVote(article_id, -1);
+            this.handleVote(-1);
           }}
         >
           Vote Down
@@ -31,12 +30,21 @@ class Vote extends Component {
     );
   }
 
-  handleVote = (article_id, increment) => {
-    api.patchArticleVotes(article_id, increment).then(article => {
-      this.setState(prevState => {
-        return { voteChange: prevState.voteChange + increment };
+  handleVote = increment => {
+    const { article_id, comment_id } = this.props;
+    if (article_id) {
+      api.patchArticleVotes(article_id, increment).then(article => {
+        this.setState(prevState => {
+          return { voteChange: prevState.voteChange + increment };
+        });
       });
-    });
+    } else {
+      api.patchCommentVotes(comment_id, increment).then(comment => {
+        this.setState(prevState => {
+          return { voteChange: prevState.voteChange + increment };
+        });
+      });
+    }
   };
 }
 
