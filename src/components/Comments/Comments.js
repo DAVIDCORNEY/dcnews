@@ -41,7 +41,11 @@ class Comments extends Component {
             <div key={comment_id}>
               <h3>User: {author}</h3>
               <h3>Date: {created_at}</h3>
-              <Votes comment_id={comment_id} votes={votes} />
+              <Votes
+                comment_id={comment_id}
+                votes={votes}
+                isLoggedIn={isLoggedIn}
+              />
               <p>{body}</p>
             </div>
           );
