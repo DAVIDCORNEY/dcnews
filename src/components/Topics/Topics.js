@@ -10,7 +10,7 @@ class Topics extends Component {
 
   componentDidMount() {
     const { topic } = this.props;
-    api.getTopics(topic).then(articles => {
+    api.getArticles(topic).then(articles => {
       this.setState({
         articles
       });
@@ -20,7 +20,7 @@ class Topics extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.topic !== this.props.topic) {
       const { topic } = this.props;
-      api.getTopics(topic).then(articles => {
+      api.getArticles(topic).then(articles => {
         this.setState({
           articles
         });

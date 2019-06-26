@@ -3,11 +3,12 @@ import axios from "axios";
 
 const request = axios.create({ baseURL: "https://dc-news.herokuapp.com/api" });
 
-export const getArticles = limit => {
+export const getArticles = (topic, limit) => {
   return request
     .get("/articles/", {
       params: {
-        limit: limit
+        limit: limit,
+        topic: topic
       }
     })
     .then(({ data: { articles } }) => {
@@ -21,17 +22,17 @@ export const getSingleArticle = id => {
   });
 };
 
-export const getTopics = topic => {
-  return request
-    .get("/articles/", {
-      params: {
-        topic: topic
-      }
-    })
-    .then(({ data: { articles } }) => {
-      return articles;
-    });
-};
+// export const getTopics = topic => {
+//   return request
+//     .get("/articles/", {
+//       params: {
+//         topic: topic
+//       }
+//     })
+//     .then(({ data: { articles } }) => {
+//       return articles;
+//     });
+// };
 
 export const getUser = username => {
   return request.get(`/users/${username}`).then(({ data: { user } }) => {

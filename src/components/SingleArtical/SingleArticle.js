@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
 import Comments from "../Comments/Comments";
+import Vote from "../Vote/Vote";
 
 class SingleArticle extends Component {
   state = {
@@ -17,7 +18,14 @@ class SingleArticle extends Component {
   }
 
   render() {
-    const { title, author, created_at, votes, body } = this.state.article;
+    const {
+      title,
+      author,
+      created_at,
+      votes,
+      body,
+      article_id
+    } = this.state.article;
     const { isLoggedIn } = this.props;
     return (
       <div>
@@ -26,6 +34,7 @@ class SingleArticle extends Component {
           <h3>Username: {author}</h3>
           <h3>Date: {created_at}</h3>
           <h3>Votes: {votes}</h3>
+          <Vote article_id={article_id} votes={votes} />
           <p>{body}</p>
         </article>
         <Comments articleId={this.props.id} isLoggedIn={isLoggedIn} />
