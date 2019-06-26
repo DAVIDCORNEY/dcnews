@@ -20,7 +20,7 @@ class Comments extends React.Component {
     return (
       <div>
         <h2>Comments</h2>
-        <AddComment />
+        {isLoggedIn && <AddComment />}
         {comments.map(comment => {
           const { author, votes, created_at, body, comment_id } = comment;
           return (
