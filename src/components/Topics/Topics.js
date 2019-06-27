@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../Api";
 import * as utils from "../../utils";
 import ArticleCard from "../ArticleCard/ArticleCard";
-//import SortTopicButtons from "../SortButtons/SortArticleButtons";
+import SortArticleButtons from "../SortButtons/SortArticleButtons";
 
 class Topics extends Component {
   state = {
@@ -29,14 +29,20 @@ class Topics extends Component {
     }
   }
 
+  setTopics = articles => {
+    this.setState({
+      articles
+    });
+  };
+
   render() {
     const { articles } = this.state;
     const { topic } = this.props;
     return (
       <div>
         <h1>{utils.capitalise(topic)}</h1>
-        {/* <h3>Sort Articles</h3> */}
-        {/* <SortTopicButtons setTopics={this.setTopics} id={topic} /> */}
+        <h3>Sort Articles</h3>
+        <SortArticleButtons setTopics={this.setTopics} />
         <section>
           {articles.map(article => {
             const { article_id } = article;

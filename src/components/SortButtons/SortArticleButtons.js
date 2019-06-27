@@ -6,7 +6,7 @@ const SortArticleButtons = ({ setArticles }) => {
     <div>
       <button
         onClick={() => {
-          api.handleSortArticles("created_at").then(articles => {
+          api.getArticles("created_at").then(articles => {
             setArticles(articles);
           });
         }}
@@ -15,7 +15,7 @@ const SortArticleButtons = ({ setArticles }) => {
       </button>
       <button
         onClick={() => {
-          api.handleSortArticles("comment_count").then(articles => {
+          api.getArticles("comment_count").then(articles => {
             setArticles(articles);
           });
         }}
@@ -24,7 +24,7 @@ const SortArticleButtons = ({ setArticles }) => {
       </button>
       <button
         onClick={() => {
-          api.handleSortArticles("votes").then(articles => {
+          api.getArticles("votes").then(articles => {
             setArticles(articles);
           });
         }}
