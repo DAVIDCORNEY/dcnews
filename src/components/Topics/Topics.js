@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
+import * as utils from "../../utils";
 import ArticleCard from "../ArticleCard/ArticleCard";
 //import SortTopicButtons from "../SortButtons/SortArticleButtons";
 
@@ -10,7 +11,7 @@ class Topics extends Component {
 
   componentDidMount() {
     const { topic } = this.props;
-    api.getArticles(topic).then(articles => {
+    api.getArticles({ topic }).then(articles => {
       this.setState({
         articles
       });
@@ -20,7 +21,7 @@ class Topics extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.topic !== this.props.topic) {
       const { topic } = this.props;
-      api.getArticles(topic).then(articles => {
+      api.getArticles({ topic }).then(articles => {
         this.setState({
           articles
         });
@@ -28,18 +29,12 @@ class Topics extends Component {
     }
   }
 
-  setTopics = articles => {
-    this.setState({
-      articles
-    });
-  };
-
   render() {
     const { articles } = this.state;
     const { topic } = this.props;
     return (
       <div>
-        <h1>{api.capitalise(topic)}</h1>
+        <h1>{utils.capitalise(topic)}</h1>
         {/* <h3>Sort Articles</h3> */}
         {/* <SortTopicButtons setTopics={this.setTopics} id={topic} /> */}
         <section>

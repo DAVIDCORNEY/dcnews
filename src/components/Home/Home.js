@@ -8,7 +8,7 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    api.getArticles(10).then(articles => {
+    api.getArticles({ limit: 10 }).then(articles => {
       this.setState({
         articles
       });

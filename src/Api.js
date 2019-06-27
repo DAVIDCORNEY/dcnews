@@ -1,13 +1,13 @@
-import React from "react";
 import axios from "axios";
 
 const request = axios.create({ baseURL: "https://dc-news.herokuapp.com/api" });
 
-export const getArticles = limit => {
+export const getArticles = ({ limit, topic }) => {
   return request
     .get("/articles/", {
       params: {
-        limit: limit
+        limit: limit,
+        topic: topic
       }
     })
     .then(({ data: { articles } }) => {
@@ -87,15 +87,3 @@ export const handleSortArticles = sort_by => {
 //       return articles;
 //     });
 // };
-
-export const capitalise = word => {
-  return word[0].toUpperCase() + word.slice(1);
-};
-
-export const userMessage = message => {
-  return (
-    <div>
-      <p>{message}</p>
-    </div>
-  );
-};

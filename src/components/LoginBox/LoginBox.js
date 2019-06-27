@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
+import * as utils from "../../utils";
 
 class LoginBox extends Component {
   state = {
@@ -43,7 +44,7 @@ class LoginBox extends Component {
         </div>
         <div className="button">
           <button type="submit">Login</button>
-          {this.state.error ? api.userMessage(this.state.error) : null}
+          {this.state.error ? utils.userMessage(this.state.error) : null}
         </div>
       </form>
     );
