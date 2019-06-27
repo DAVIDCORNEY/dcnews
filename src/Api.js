@@ -2,12 +2,13 @@ import axios from "axios";
 
 const request = axios.create({ baseURL: "https://dc-news.herokuapp.com/api" });
 
-export const getArticles = ({ limit, topic }) => {
+export const getArticles = ({ limit, topic, sort_by }) => {
   return request
     .get("/articles/", {
       params: {
         limit: limit,
-        topic: topic
+        topic: topic,
+        sort_by: sort_by
       }
     })
     .then(({ data: { articles } }) => {
