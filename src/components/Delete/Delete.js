@@ -1,14 +1,26 @@
 import React from "react";
 import * as api from "../../Api";
 
-const Delete = ({ comment_id }) => {
+const Delete = ({ comment_id, setComments, comments }) => {
   return (
     <div>
-      <button onClick={() => api.deleteComment(comment_id).then()}>
+      <button
+        onClick={() =>
+          api
+            .deleteComment(comment_id)
+            .then(() => setComments(filtered(comments, comment_id)))
+        }
+      >
         Delete Comment
       </button>
     </div>
   );
+};
+
+const filtered = (comments, comment_id) => {
+  return comments.filter(function(comment) {
+    return comment_id !== comment.comment_id;
+  });
 };
 
 export default Delete;
