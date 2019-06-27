@@ -11,3 +11,9 @@ export const userMessage = message => {
     </div>
   );
 };
+
+export const filtered = (comments, comment_id) => {
+  return comments.filter(function(comment) {
+    return comment_id !== comment.comment_id;
+  });
+};
