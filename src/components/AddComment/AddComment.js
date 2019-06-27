@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
-//import axios from "axios";
 
 class AddComment extends Component {
   state = {
-    author: this.props.loggedInUser,
+    author: "",
     body: ""
   };
 
   handleUserInput = event => {
+    const { loggedInUser } = this.props;
     const input = event.target.value;
-    this.setState({ body: input });
+    this.setState({
+      author: loggedInUser,
+      body: input
+    });
   };
 
   handleSubmit = event => {
@@ -22,6 +25,7 @@ class AddComment extends Component {
       .postComment(articleId, author, body)
       .then(comment => {
         upDateComments(comment);
+        this.setState({ body: "" });
       })
       .catch(err => {
         console.dir(err);
@@ -38,6 +42,7 @@ class AddComment extends Component {
             <input
               type="text"
               id="comment"
+              value={this.state.body}
               required
               onChange={this.handleUserInput}
             />
