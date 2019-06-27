@@ -52,6 +52,14 @@ export const patchCommentVotes = (comment_id, increment) => {
     });
 };
 
+export const deleteComment = comment_id => {
+  return request
+    .delete(`/comment/${comment_id}`)
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+};
+
 export const handleSortArticles = sort_by => {
   return request
     .get("/articles/", {

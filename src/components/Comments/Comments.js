@@ -22,6 +22,12 @@ class Comments extends Component {
     });
   };
 
+  setComments = comments => {
+    this.setState({
+      comments
+    });
+  };
+
   render() {
     const { articleId } = this.props;
     const { comments } = this.state;
@@ -47,7 +53,12 @@ class Comments extends Component {
                 votes={votes}
                 isLoggedIn={isLoggedIn}
               />
-              {isLoggedIn === author && <Delete />}
+              {isLoggedIn === author && (
+                <Delete
+                  comment_id={comment_id}
+                  setComments={this.setComments}
+                />
+              )}
               <p>{body}</p>
             </div>
           );

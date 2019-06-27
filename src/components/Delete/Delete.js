@@ -1,9 +1,12 @@
 import React from "react";
+import * as api from "../../Api";
 
-const Delete = () => {
+const Delete = ({ comment_id }) => {
   return (
     <div>
-      <button>Delete Comment</button>
+      <button onClick={() => api.deleteComment(comment_id)}>
+        Delete Comment
+      </button>
     </div>
   );
 };
