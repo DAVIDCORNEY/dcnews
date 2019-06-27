@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../Api";
 import AddComment from "../AddComment/AddComment";
 import Votes from "../Vote/Vote";
+import Delete from "../Delete/Delete";
 
 class Comments extends Component {
   state = {
@@ -46,6 +47,7 @@ class Comments extends Component {
                 votes={votes}
                 isLoggedIn={isLoggedIn}
               />
+              {isLoggedIn === author && <Delete />}
               <p>{body}</p>
             </div>
           );
