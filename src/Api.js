@@ -52,6 +52,17 @@ export const patchCommentVotes = (comment_id, increment) => {
     });
 };
 
+export const postComment = (articleId, author, body) => {
+  return request
+    .post(`/articles/${articleId}/comments`, {
+      username: author,
+      body: body
+    })
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+};
+
 export const deleteComment = comment_id => {
   return request
     .delete(`/comments/${comment_id}`)

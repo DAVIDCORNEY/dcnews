@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import * as api from "../../Api";
+//import axios from "axios";
 
 class AddComment extends Component {
   state = {
@@ -17,15 +18,9 @@ class AddComment extends Component {
     const { articleId } = this.props;
     event.preventDefault();
     const { author, body } = this.state;
-    return axios
-      .post(
-        `https://dc-news.herokuapp.com/api/articles/${articleId}/comments`,
-        {
-          username: author,
-          body: body
-        }
-      )
-      .then(({ data: { comment } }) => {
+    api
+      .postComment(articleId, author, body)
+      .then(comment => {
         upDateComments(comment);
       })
       .catch(err => {
