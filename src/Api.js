@@ -21,18 +21,6 @@ export const getSingleArticle = id => {
   });
 };
 
-// export const getTopics = topic => {
-//   return request
-//     .get("/articles/", {
-//       params: {
-//         topic: topic
-//       }
-//     })
-//     .then(({ data: { articles } }) => {
-//       return articles;
-//     });
-// };
-
 export const getUser = username => {
   return request.get(`/users/${username}`).then(({ data: { user } }) => {
     return user;
