@@ -54,33 +54,8 @@ export const patchCommentVotes = (comment_id, increment) => {
 
 export const deleteComment = comment_id => {
   return request
-    .delete(`/comment/${comment_id}`)
+    .delete(`/comments/${comment_id}`)
     .then(({ data: { comment } }) => {
       return comment;
     });
 };
-
-export const handleSortArticles = sort_by => {
-  return request
-    .get("/articles/", {
-      params: {
-        sort_by: sort_by
-      }
-    })
-    .then(({ data: { articles } }) => {
-      return articles;
-    });
-};
-
-// export const handleSortTopics = (topic, sort_by) => {
-//   return request
-//     .get("/articles/", {
-//       params: {
-//         topic: topic,
-//         sort_by: sort_by
-//       }
-//     })
-//     .then(({ data: { articles } }) => {
-//       return articles;
-//     });
-// };

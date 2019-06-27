@@ -57,6 +57,7 @@ class Comments extends Component {
                 <Delete
                   comment_id={comment_id}
                   setComments={this.setComments}
+                  comments={comments}
                 />
               )}
               <p>{body}</p>
