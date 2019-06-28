@@ -48,7 +48,7 @@ class Articles extends Component {
       <div>
         <h1>Articles</h1>
         <h3>Sort Articles</h3>
-        <SortArticleButtons setArticles={this.setArticles} type="articles" />
+        <SortArticleButtons set={this.setArticles} />
         <section>
           {articles.map(article => {
             const { article_id } = article;

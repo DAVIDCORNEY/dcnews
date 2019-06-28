@@ -1,18 +1,13 @@
 import React from "react";
 import * as api from "../../Api";
 
-const SortArticleButtons = ({ setArticles, type, setTopics, topic }) => {
+const SortArticleButtons = ({ set, topic }) => {
   return (
     <div>
       <button
         onClick={() => {
           api.getArticles({ topic, sort_by: "created_at" }).then(articles => {
-            if (type === "articles") {
-              setArticles(articles);
-            }
-            if (type === "topics") {
-              setTopics(articles);
-            }
+            set(articles);
           });
         }}
       >
@@ -23,12 +18,7 @@ const SortArticleButtons = ({ setArticles, type, setTopics, topic }) => {
           api
             .getArticles({ topic, sort_by: "comment_count" })
             .then(articles => {
-              if (type === "articles") {
-                setArticles(articles);
-              }
-              if (type === "topics") {
-                setTopics(articles);
-              }
+              set(articles);
             });
         }}
       >
@@ -37,12 +27,7 @@ const SortArticleButtons = ({ setArticles, type, setTopics, topic }) => {
       <button
         onClick={() => {
           api.getArticles({ topic, sort_by: "votes" }).then(articles => {
-            if (type === "articles") {
-              setArticles(articles);
-            }
-            if (type === "topics") {
-              setTopics(articles);
-            }
+            set(articles);
           });
         }}
       >

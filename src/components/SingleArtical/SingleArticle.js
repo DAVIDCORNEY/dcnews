@@ -24,6 +24,7 @@ class SingleArticle extends Component {
         });
       })
       .catch(err => {
+        console.dir(err);
         this.setState({
           error: err,
           isLoading: false
@@ -32,6 +33,7 @@ class SingleArticle extends Component {
   }
 
   render() {
+    const { error } = this.state;
     const {
       title,
       author,
@@ -39,7 +41,6 @@ class SingleArticle extends Component {
       votes,
       body,
       article_id,
-      error,
       isLoading
     } = this.state.article;
     if (isLoading) return <LoadingSpinner />;

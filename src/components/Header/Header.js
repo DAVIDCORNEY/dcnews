@@ -6,7 +6,6 @@ import LogoutBox from "../LogoutBox/LogoutBox";
 const Header = props => {
   return (
     <header className="header">
-      <h1>DCNEWS</h1>
       <Navigation />
       {props.isLoggedIn ? (
         <LogoutBox

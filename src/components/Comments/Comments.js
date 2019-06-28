@@ -5,14 +5,29 @@ import SingleComment from "../SingleComment/SingleComment";
 
 class Comments extends Component {
   state = {
-    comments: []
+    comments: [],
+    error: null,
+    isLoading: true
   };
 
   componentDidMount() {
     const { articleId } = this.props;
-    api.getComments(articleId).then(comments => {
-      this.setState({ comments });
-    });
+    api
+      .getComments(articleId)
+      .then(comments => {
+        this.setState({
+          comments,
+          isLoading: false,
+          error: null
+        });
+      })
+      .catch(err => {
+        console.dir(err);
+        this.setState({
+          error: err,
+          isLoading: false
+        });
+      });
   }
 
   upDateComments = newComment => {
