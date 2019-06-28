@@ -3,19 +3,33 @@ import * as api from "../../Api";
 import * as utils from "../../utils";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import SortArticleButtons from "../SortButtons/SortArticleButtons";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import Error from "../Error/Error";
 
 class Topics extends Component {
   state = {
-    articles: []
+    articles: [],
+    error: null,
+    isLoading: true
   };
 
   componentDidMount() {
     const { topic } = this.props;
-    api.getArticles({ topic }).then(articles => {
-      this.setState({
-        articles
+    api
+      .getArticles({ topic })
+      .then(articles => {
+        this.setState({
+          articles,
+          isLoading: false,
+          error: null
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: err,
+          isLoading: false
+        });
       });
-    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -36,8 +50,10 @@ class Topics extends Component {
   };
 
   render() {
-    const { articles } = this.state;
+    const { articles, error, isLoading } = this.state;
     const { topic } = this.props;
+    if (isLoading) return <LoadingSpinner />;
+    if (error) return <Error error={error} />;
     return (
       <div>
         <h1>{utils.capitalise(topic)}</h1>

@@ -2,19 +2,33 @@ import React, { Component } from "react";
 import * as api from "../../Api";
 import Comments from "../Comments/Comments";
 import Vote from "../Vote/Vote";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import Error from "../Error/Error";
 
 class SingleArticle extends Component {
   state = {
-    article: {}
+    article: {},
+    error: null,
+    isLoading: true
   };
 
   componentDidMount() {
     const { id } = this.props;
-    api.getSingleArticle(id).then(article => {
-      this.setState({
-        article
+    api
+      .getSingleArticle(id)
+      .then(article => {
+        this.setState({
+          article,
+          isLoading: false,
+          error: null
+        });
+      })
+      .catch(err => {
+        this.setState({
+          error: err,
+          isLoading: false
+        });
       });
-    });
   }
 
   render() {
@@ -24,8 +38,12 @@ class SingleArticle extends Component {
       created_at,
       votes,
       body,
-      article_id
+      article_id,
+      error,
+      isLoading
     } = this.state.article;
+    if (isLoading) return <LoadingSpinner />;
+    if (error) return <Error error={error} />;
     const { isLoggedIn } = this.props;
     return (
       <div>

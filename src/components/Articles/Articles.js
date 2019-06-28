@@ -3,6 +3,7 @@ import * as api from "../../Api";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import SortArticleButtons from "../SortButtons/SortArticleButtons";
 import Error from "../Error/Error";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 class Articles extends Component {
   state = {
@@ -41,7 +42,7 @@ class Articles extends Component {
 
   render() {
     const { articles, error, isLoading } = this.state;
-    if (isLoading) return <div className="spinner" />;
+    if (isLoading) return <LoadingSpinner />;
     if (error) return <Error error={error} />;
     return (
       <div>
