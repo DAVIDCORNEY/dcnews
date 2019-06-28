@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../Api";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import Error from "../Error/Error";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 class Home extends Component {
   state = {
@@ -30,7 +31,7 @@ class Home extends Component {
 
   render() {
     const { articles, error, isLoading } = this.state;
-    if (isLoading) return <div className="spinner" />;
+    if (isLoading) return <LoadingSpinner />;
     if (error) return <Error error={error} />;
     return (
       <div>
