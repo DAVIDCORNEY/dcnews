@@ -4,6 +4,7 @@ import Comments from "../Comments/Comments";
 import Vote from "../Vote/Vote";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import Error from "../Error/Error";
+import moment from "moment";
 
 class SingleArticle extends Component {
   state = {
@@ -51,7 +52,7 @@ class SingleArticle extends Component {
         <article>
           <h1>{title}</h1>
           <h3>Username: {author}</h3>
-          <h3>Date: {created_at}</h3>
+          <h3>Posted on: {moment(created_at).format("LL")}</h3>
           <Vote article_id={article_id} votes={votes} isLoggedIn={isLoggedIn} />
           <p>{body}</p>
         </article>

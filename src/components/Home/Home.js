@@ -3,6 +3,7 @@ import * as api from "../../Api";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import Error from "../Error/Error";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import HomePageImage from "../HomePageImage/HomePageImage";
 
 class Home extends Component {
   state = {
@@ -35,9 +36,8 @@ class Home extends Component {
     if (error) return <Error error={error} />;
     return (
       <div>
-        <h1>Home Page</h1>
-        <h2>Latest Articles</h2>
-        <section>
+        <HomePageImage />
+        <section className="container">
           {articles.map(article => {
             const { article_id } = article;
             return <ArticleCard article={article} key={article_id} />;

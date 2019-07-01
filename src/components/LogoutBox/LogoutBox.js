@@ -1,11 +1,11 @@
 import React from "react";
 
-const LogoutBox = props => {
+const LogoutBox = ({ getLoggedInUser, name }) => {
   return (
     <div>
-      <h3>Welcome {props.name}</h3>
+      <h5>Welcome {name}</h5>
       <div className="button">
-        <button onClick={() => props.getLoggedInUser("")}>Logout</button>
+        <button onClick={() => getLoggedInUser("")}>Logout</button>
       </div>
     </div>
   );
