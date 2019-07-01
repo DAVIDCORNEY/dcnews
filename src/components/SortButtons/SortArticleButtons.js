@@ -11,7 +11,7 @@ const SortArticleButtons = ({ set, topic }) => {
           });
         }}
       >
-        Date
+        Sort By Date
       </button>
       <button
         onClick={() => {
@@ -22,7 +22,7 @@ const SortArticleButtons = ({ set, topic }) => {
             });
         }}
       >
-        Comment Count
+        Sort By Comment Count
       </button>
       <button
         onClick={() => {
@@ -31,7 +31,7 @@ const SortArticleButtons = ({ set, topic }) => {
           });
         }}
       >
-        Votes
+        Sort By Votes
       </button>
     </div>
   );
