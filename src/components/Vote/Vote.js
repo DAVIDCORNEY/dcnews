@@ -3,7 +3,8 @@ import * as api from "../../Api";
 
 class Vote extends Component {
   state = {
-    voteChange: 0
+    voteChange: 0,
+    error: null
   };
 
   render() {
@@ -15,18 +16,18 @@ class Vote extends Component {
         {isLoggedIn && (
           <div>
             <button
+              disabled={voteChange > 0}
               onClick={() => {
                 this.handleVote(1);
               }}
-              disabled={voteChange > 0}
             >
               Vote Up
             </button>
             <button
+              disabled={voteChange < 0}
               onClick={() => {
                 this.handleVote(-1);
               }}
-              disabled={voteChange < 0}
             >
               Vote Down
             </button>
@@ -39,16 +40,18 @@ class Vote extends Component {
   handleVote = increment => {
     const { article_id, comment_id } = this.props;
     if (article_id) {
-      api.patchArticleVotes(article_id, increment).then(article => {
-        this.setState(prevState => {
-          return { voteChange: prevState.voteChange + increment };
-        });
+      api.patchArticleVotes(article_id, increment).catch(err => {
+        this.setState({ error: err });
+      });
+      this.setState(prevState => {
+        return { voteChange: prevState.voteChange + increment };
       });
     } else {
-      api.patchCommentVotes(comment_id, increment).then(comment => {
-        this.setState(prevState => {
-          return { voteChange: prevState.voteChange + increment };
-        });
+      api.patchCommentVotes(comment_id, increment).catch(err => {
+        this.setState({ error: err });
+      });
+      this.setState(prevState => {
+        return { voteChange: prevState.voteChange + increment };
       });
     }
   };

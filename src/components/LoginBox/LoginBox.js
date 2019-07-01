@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
-import * as utils from "../../utils";
+import UserMessage from "../UserMessage/UserMessage";
 
 class LoginBox extends Component {
   state = {
@@ -29,10 +29,13 @@ class LoginBox extends Component {
   };
 
   render() {
+    const error = this.state.error;
     return (
       <form id="loginForm" onSubmit={this.handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">
+            Username: Please Login with tickle122 to vote and comment
+          </label>
           <input
             type="text"
             required
@@ -44,7 +47,7 @@ class LoginBox extends Component {
         </div>
         <div className="button">
           <button type="submit">Login</button>
-          {this.state.error ? utils.userMessage(this.state.error) : null}
+          {this.state.error ? <UserMessage error={error} /> : null}
         </div>
       </form>
     );

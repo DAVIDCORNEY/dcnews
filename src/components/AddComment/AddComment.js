@@ -37,16 +37,16 @@ class AddComment extends Component {
       <div>
         <h2>Add a new comment</h2>
         <form id="commentForm" onSubmit={this.handleSubmit}>
-          <label>
-            comment
-            <input
-              type="text"
+          <div className="form-group">
+            <label for="comment">Comment Here</label>
+            <textarea
+              className="form-control-lg"
               id="comment"
               value={this.state.body}
               required
               onChange={this.handleUserInput}
             />
-          </label>
+          </div>
           <div className="button">
             <button type="submit">Post Comment</button>
           </div>
