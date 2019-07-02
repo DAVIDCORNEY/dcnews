@@ -59,7 +59,7 @@ class Topics extends Component {
         <h1>{utils.capitalise(topic)}</h1>
         <h3>Sort Articles</h3>
         <SortArticleButtons set={this.setTopics} topic={topic} />
-        <section>
+        <section className="container">
           {articles.map(article => {
             const { article_id } = article;
             return <ArticleCard article={article} key={article_id} />;

@@ -12,7 +12,7 @@ class Vote extends Component {
     const { voteChange } = this.state;
     return (
       <>
-        <h3>Votes: {votes + voteChange}</h3>
+        <h4>Votes: {votes + voteChange}</h4>
         {isLoggedIn && (
           <div>
             <button

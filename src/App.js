@@ -7,6 +7,7 @@ import SingleArticle from "./components/SingleArtical/SingleArticle";
 import Articles from "./components/Articles/Articles";
 import Topics from "./components/Topics/Topics";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Error from "./components/Error/Error";
 
 class App extends Component {
@@ -46,6 +47,7 @@ class App extends Component {
           <Topics path="/topics/:topic" />
           <Error default />
         </Router>
+        <Footer />
       </div>
     );
   }

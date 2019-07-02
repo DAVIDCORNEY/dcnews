@@ -49,7 +49,7 @@ class Articles extends Component {
         <h1>Articles</h1>
         <h3>Sort Articles</h3>
         <SortArticleButtons set={this.setArticles} />
-        <section>
+        <section className="container">
           {articles.map(article => {
             const { article_id } = article;
             return <ArticleCard article={article} key={article_id} />;

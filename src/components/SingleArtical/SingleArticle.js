@@ -34,28 +34,35 @@ class SingleArticle extends Component {
   }
 
   render() {
-    const { error } = this.state;
+    const { error, isLoading } = this.state;
     const {
       title,
       author,
       created_at,
       votes,
       body,
-      article_id,
-      isLoading
+      article_id
     } = this.state.article;
     if (isLoading) return <LoadingSpinner />;
     if (error) return <Error error={error} />;
     const { isLoggedIn } = this.props;
     return (
-      <div>
-        <article>
-          <h1>{title}</h1>
-          <h3>Username: {author}</h3>
-          <h3>Posted on: {moment(created_at).format("LL")}</h3>
-          <Vote article_id={article_id} votes={votes} isLoggedIn={isLoggedIn} />
-          <p>{body}</p>
-        </article>
+      <div className="container">
+        <div className="row mt-3">
+          <article className="col-sm-12 card">
+            <div className="card-body">
+              <h1>{title}</h1>
+              <h4>Username: {author}</h4>
+              <h4>Posted on: {moment(created_at).format("LL")}</h4>
+              <Vote
+                article_id={article_id}
+                votes={votes}
+                isLoggedIn={isLoggedIn}
+              />
+              <p>{body}</p>
+            </div>
+          </article>
+        </div>
         <Comments articleId={this.props.id} isLoggedIn={isLoggedIn} />
       </div>
     );

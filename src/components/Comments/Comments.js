@@ -59,13 +59,17 @@ class Comments extends Component {
         {comments.map(comment => {
           const { comment_id } = comment;
           return (
-            <SingleComment
-              comment={comment}
-              comments={comments}
-              key={comment_id}
-              isLoggedIn={isLoggedIn}
-              setComments={this.setComments}
-            />
+            <div className="row mt-3">
+              <div className="col-sm-12 card">
+                <SingleComment
+                  comment={comment}
+                  comments={comments}
+                  key={comment_id}
+                  isLoggedIn={isLoggedIn}
+                  setComments={this.setComments}
+                />
+              </div>
+            </div>
           );
         })}
       </div>

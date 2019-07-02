@@ -8,7 +8,7 @@ const Navigation = ({ isLoggedIn, getLoggedInUser }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/" className="navbar-brand">
-        DCS
+        DC NEWS
       </Link>
       <button
         className="navbar-toggler"
