@@ -39,9 +39,9 @@ class AddComment extends Component {
         <h3>Add a new comment</h3>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            {/* <label htmlFor="comment" /> */}
             <textarea
               className="form-control-lg"
+              aria-label="comment here"
               id="comment"
               value={this.state.body}
               required
