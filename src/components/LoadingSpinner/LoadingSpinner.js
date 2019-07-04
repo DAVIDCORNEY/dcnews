@@ -3,7 +3,7 @@ import React from "react";
 const LoadingSpinner = () => {
   return (
     <>
-      <div className="spinner" />
+      <div className="spinner mt-2" />
       <h3>Loading ...</h3>
     </>
   );
