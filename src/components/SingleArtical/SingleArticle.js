@@ -48,7 +48,7 @@ class SingleArticle extends Component {
     const { isLoggedIn } = this.props;
     return (
       <div className="container">
-        <div className="row mt-3">
+        <div className="row mt-4">
           <article className="col-sm-12 card">
             <div className="card-body">
               <h1>{title}</h1>

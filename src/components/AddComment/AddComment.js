@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../Api";
+import "./AddComment.css";
 
 class AddComment extends Component {
   state = {
@@ -34,21 +35,24 @@ class AddComment extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Add a new comment</h2>
-        <form id="commentForm" onSubmit={this.handleSubmit}>
+      <div className="col-sm-12 mb-5">
+        <h3>Add a new comment</h3>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label for="comment">Comment Here</label>
+            {/* <label htmlFor="comment" /> */}
             <textarea
               className="form-control-lg"
               id="comment"
               value={this.state.body}
               required
+              placeholder="Enter the debate!"
               onChange={this.handleUserInput}
             />
           </div>
           <div className="button">
-            <button type="submit">Post Comment</button>
+            <button className="btn btn-outline-success" type="submit">
+              Post Comment
+            </button>
           </div>
         </form>
       </div>

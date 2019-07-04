@@ -45,7 +45,7 @@ class Articles extends Component {
     if (isLoading) return <LoadingSpinner />;
     if (error) return <Error error={error} />;
     return (
-      <div>
+      <div className="mt-3">
         <h1>Articles</h1>
         <h3>Sort Articles</h3>
         <SortArticleButtons set={this.setArticles} />

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../Api";
 import AddComment from "../AddComment/AddComment";
 import SingleComment from "../SingleComment/SingleComment";
+import "./Comments.css";
 
 class Comments extends Component {
   state = {
@@ -47,19 +48,25 @@ class Comments extends Component {
     const { comments } = this.state;
     const { isLoggedIn } = this.props;
     return (
-      <div>
-        <h2>Comments</h2>
+      <>
+        <div className="row mt-4 mb-4">
+          <div className="col-sm-12">
+            <h2>Comments</h2>
+          </div>
+        </div>
         {isLoggedIn && (
-          <AddComment
-            loggedInUser={isLoggedIn}
-            articleId={articleId}
-            upDateComments={this.upDateComments}
-          />
+          <div className="row mb-3">
+            <AddComment
+              loggedInUser={isLoggedIn}
+              articleId={articleId}
+              upDateComments={this.upDateComments}
+            />
+          </div>
         )}
         {comments.map(comment => {
           const { comment_id } = comment;
           return (
-            <div className="row mt-3">
+            <div className="row mt-3" key={comment_id}>
               <div className="col-sm-12 card">
                 <SingleComment
                   comment={comment}
@@ -72,7 +79,7 @@ class Comments extends Component {
             </div>
           );
         })}
-      </div>
+      </>
     );
   }
 }

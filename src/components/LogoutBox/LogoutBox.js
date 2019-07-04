@@ -4,9 +4,12 @@ const LogoutBox = ({ getLoggedInUser, name }) => {
   return (
     <div>
       <h5>Welcome {name}</h5>
-      <div className="button">
-        <button onClick={() => getLoggedInUser("")}>Logout</button>
-      </div>
+      <button
+        className="btn btn-outline-success"
+        onClick={() => getLoggedInUser("")}
+      >
+        Logout
+      </button>
     </div>
   );
 };

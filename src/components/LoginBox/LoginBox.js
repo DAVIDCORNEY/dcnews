@@ -31,24 +31,23 @@ class LoginBox extends Component {
   render() {
     const error = this.state.error;
     return (
-      <form id="loginForm" onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="username">
-            Username: Please Login with tickle122 to vote and comment
-          </label>
-          <input
-            type="text"
-            required
-            id="username"
-            name="username"
-            onChange={this.handleUserInput}
-            value={this.state.userInput}
-          />
-        </div>
-        <div className="button">
-          <button type="submit">Login</button>
-          {this.state.error ? <UserMessage error={error} /> : null}
-        </div>
+      <form className="form-inline my-2 my-lg-0" onSubmit={this.handleSubmit}>
+        <label htmlFor="username">
+          Username: Please Login with tickle122 to vote and comment
+        </label>
+        <input
+          className="form-control ml-md-2 ml-lg-2"
+          type="text"
+          required
+          id="username"
+          name="username"
+          onChange={this.handleUserInput}
+          value={this.state.userInput}
+        />
+        <button className="btn btn-outline-success ml-md-2" type="submit">
+          Login
+        </button>
+        {this.state.error ? <UserMessage error={error} /> : null}
       </form>
     );
   }

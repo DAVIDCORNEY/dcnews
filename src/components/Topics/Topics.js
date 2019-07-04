@@ -55,7 +55,7 @@ class Topics extends Component {
     if (isLoading) return <LoadingSpinner />;
     if (error) return <Error error={error} />;
     return (
-      <div>
+      <div className="mt-3">
         <h1>{utils.capitalise(topic)}</h1>
         <h3>Sort Articles</h3>
         <SortArticleButtons set={this.setTopics} topic={topic} />

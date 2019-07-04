@@ -16,6 +16,7 @@ class Vote extends Component {
         {isLoggedIn && (
           <div>
             <button
+              className="btn btn-primary mr-2 mb-3"
               disabled={voteChange > 0}
               onClick={() => {
                 this.handleVote(1);
@@ -24,6 +25,7 @@ class Vote extends Component {
               Vote Up
             </button>
             <button
+              className="btn btn-primary ml-2 mb-3"
               disabled={voteChange < 0}
               onClick={() => {
                 this.handleVote(-1);

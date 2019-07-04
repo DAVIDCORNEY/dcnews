@@ -7,7 +7,7 @@ const NavLink = props => (
     getProps={({ isCurrent }) => {
       return {
         style: {
-          color: isCurrent ? "#0056b3" : "#047afb"
+          color: isCurrent ? "#343a40" : "#6c757d"
         }
       };
     }}
