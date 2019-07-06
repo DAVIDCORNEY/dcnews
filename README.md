@@ -33,9 +33,9 @@ If git is not installed, please follow instructions at [git](https://git-scm.com
 
 ### Installing  
 
-To run this API you will need to clone it to your local machine and install all it dependencies.
+To run this API you will need to clone it to your local machine and install all its dependencies.
 
-Clone this GitHub repository into the folder you want to install it
+Clone this GitHub repository into the folder you want to install it in
 ```
 git clone https://github.com/DAVIDCORNEY/dcnews.git
 ```
