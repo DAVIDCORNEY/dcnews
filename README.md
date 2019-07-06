@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DC NEWS
 
-## Available Scripts
+DC News is social news aggregation website.
 
-In the project directory, you can run:
+The website contains articles, which are divided into topics. Users can preview all of the articles or select to view articles by topic, which can be sorted by date, comment count or votes. 
 
-### `npm start`
+Users can click on an article to view the full article and see any associated comments and votes.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If logged in, Users are able to vote up or down on an article or comment, but are only able to cast one vote in either direction before the vote button is disabled. Logged in Users are also able to add comments and delete comments that they have made. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+DC NEWS is hosted on Netlify and can be visited [here](https://dcnews.netlify.com/)
 
-### `npm test`
+The backend API is hosted on Heroku and endpoints can be found [here](https://dc-news.herokuapp.com/api). The link to the backend GitHub repository can be found [here](https://github.com/DAVIDCORNEY/ncnews)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started  
 
-### `npm run build`
+Please follow the steps below to run the API on your machine.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites  
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Check if you already have node.js by typing the following command in your terminal:
+```
+node –v
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If node is not already installed, please follow instructions at [Node.js](https://nodejs.org/en/) (npm will be installed with Node).
 
-### `npm run eject`
+Check if git is installed on your machine by typing the following command in your terminal:
+```
+git –version
+```
+If git is not installed, please follow instructions at [git](https://git-scm.com/downloads)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Installing  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run this API you will need to clone it to your local machine and install all it dependencies.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Clone this GitHub repository into the folder you want to install it
+```
+git clone https://github.com/DAVIDCORNEY/dcnews.git
+```
+Install all the dependencies
+```
+npm install
+```
+## Dependencies
+- reach/router: v1.2.1
+- axios: v0.19.0
+- bootstrap: v4.3.1
+- jquery: v3.4.1
+- moment: v2.24.0
+- popper.js: v1.15.0
+- react: v16.8.6
+- react-dom: v16.8.6
+- react-scripts: v3.0.1
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Run The Development Server
+``
+npm start
+``
+## Built With  
 
-## Learn More
+- [Node.js](https://nodejs.org/en/)
+- [React](https://reactjs.org/)
+- [Axios](https://github.com/axios/axios)
+- [Bootstrap](https://getbootstrap.com/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Authors  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+David Corney
 
-### Code Splitting
+## Acknowledgments  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Thank you to all the tutors at Northcoders Manchester.
