@@ -27,7 +27,7 @@ If node is not already installed, please follow instructions at [Node.js](https:
 
 Check if git is installed on your machine by typing the following command in your terminal:
 ```
-git –version
+git –-version
 ```
 If git is not installed, please follow instructions at [git](https://git-scm.com/downloads)
 
